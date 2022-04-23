@@ -1,9 +1,11 @@
 package com.codecool.CoolNote;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
@@ -28,12 +30,15 @@ public class NoteController {
     }
 
     @PostMapping("note")
-    public String addNote() {
+    public String addNote(@ModelAttribute Note note) {
+        noteService.addNote(note);
         return "redirect:/";
     }
 
     @GetMapping("add_note")
-    public String displayAddNote() {
+    public String displayAddNote(Model model) {
+        model.addAttribute("title", "Adding note");
+        model.addAttribute("note", new Note());
         return "add_note";
     }
 

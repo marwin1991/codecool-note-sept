@@ -22,4 +22,8 @@ public class NoteRepository {
         return notes;
     }
 
+    public void save(Note note){
+        notes.add(note);
+    }
+
 }
