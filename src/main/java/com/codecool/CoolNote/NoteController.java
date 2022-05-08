@@ -1,7 +1,7 @@
 package com.codecool.CoolNote;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,20 +9,16 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
+@RequiredArgsConstructor
 public class NoteController {
-    private final NoteService noteService;
 
-    @Autowired
-    public NoteController(NoteService noteService) {
-        this.noteService = noteService;
-    }
+    private final NoteService noteService;
 
     @GetMapping("/")
     public String index(Model model) {
         model.addAttribute("notes", noteService.getAll());
         return "index";
     }
-
 
     @GetMapping("note")
     public String displayNote() {

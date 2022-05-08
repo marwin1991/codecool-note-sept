@@ -1,20 +1,15 @@
 package com.codecool.CoolNote;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class NoteService {
 
     private final NoteRepository noteRepository;
-
-    @Autowired
-    public NoteService(NoteRepository noteRepository) {
-        this.noteRepository = noteRepository;
-    }
-
 
     public List<Note> getAll() {
         return noteRepository.findAll();

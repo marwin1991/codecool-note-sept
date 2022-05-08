@@ -1,8 +1,19 @@
 package com.codecool.CoolNote;
 
-import javax.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
 public class Note {
 
     @Id
@@ -12,29 +23,6 @@ public class Note {
     private String message;
 
     public Note(String message) {
-        this.message = message;
-    }
-
-    public Note() {
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public void setMessage(String message) {
         this.message = message;
     }
 }
