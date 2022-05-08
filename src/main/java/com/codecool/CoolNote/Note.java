@@ -22,6 +22,10 @@ public class Note {
         return message;
     }
 
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
     public long getId() {
         return id;
     }

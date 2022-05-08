@@ -5,6 +5,7 @@
     <title th:text="${title}"></title>
 </head>
 <body>
+<a th:href="@{/add_note}">Add Note</a>
 <table>
     <tr th:each="note: ${notes}">
         <td th:text="${note.message}"></td>
